@@ -2439,3 +2439,43 @@ a:focus {
   .justify-modal {
     text-align: justify;
   }
+
+ @media (max-width: 768px) {
+    /* 1. Alinha o cabeçalho à esquerda e remove o centro do container flex */
+    .modal-header {
+        justify-content: flex-start !important;
+        padding-left: 10px !important;
+    }
+
+    /* 2. Garante que o título principal não centralize o texto internamente */
+    .modal-header .modal-title {
+        font-size: 1.1rem !important; /* Tamanho reduzido para caber o botão X */
+        text-align: left !important;
+        margin-left: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* 3. Diminui o SEGUNDO título (que está no corpo do modal) */
+    /* Usei seletores comuns de títulos que o Bootstrap usa no body */
+    .modal-body h2, 
+    .modal-body h3,
+    .modal-body .h2-subtitulo,
+    .modal-body [class*="titulo"] { 
+        font-size: 1.1rem !important; /* Menor que o título principal */
+        line-height: 1.2 !important;
+        margin-top: 5px !important;
+    }
+
+    /* 4. Ajusta a imagem para não "roubar" espaço do texto no celular */
+    .modal-header img {
+        width: 35px !important;
+        margin-right: 8px !important;
+    }
+
+    /* 5. Garante que o botão X não fique em cima do texto */
+    .modal-header .close {
+        padding: 0.5rem !important;
+        margin: -0.5rem -0.5rem -0.5rem auto !important;
+    }
+}
